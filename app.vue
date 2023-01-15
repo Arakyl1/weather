@@ -2,7 +2,7 @@
   <div>
     <div class="min-h-screen relative">
       <div class="fixed h-full top-0 left-0 w-full" >
-        <img src="img/background/__nigth.jpg" alt="" class="object-cover min-w-full min-h-full">
+        <img src="@/assets/img/background/__nigth.jpg" alt="" class="object-cover min-w-full min-h-full">
       </div>
       <div class="max-w-xl mx-auto border border-yellow-100 pt-24">
         <MainNowInfo/>
