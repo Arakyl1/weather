@@ -28,15 +28,15 @@
         <div class="py-2">
           <h3 class=" text-2xl font-semibold text-teal-100 dark:text-teal-400 sm:text-xl xs_1:text-base">Wind</h3>
           <div class="flex justify-between">
-            <IconWind class="group is-icon-white" />
+            <IconWind class="group is-icon-white xs:w-12" />
             <div class="text-right">
-              <p class="text-yellow-100 dark:text-yellow-200 text-xl font-semibold mb-2 sm:text-lg xs_2:mb-0 xs_1:text-base">
+              <p class="text-yellow-100 dark:text-yellow-200 text-xl font-semibold mb-2 sm:text-lg xs_2:mb-0 xs_1:text-base xs:text-sm">
                 Wind direction :
                 <span class=" text-sky-100">{{
                   windDirection(dataForDay.winddirection_10m_dominant)
                 }}</span>
               </p>
-              <p class="text-yellow-200 text-xl font-semibold sm:text-lg xs_1:text-base">
+              <p class="text-yellow-200 dark:text-yellow-20 text-xl font-semibold sm:text-lg xs_1:text-base xs:text-sm">
                 Wind speed :
                 <span class="text-sky-100">{{
                   dataForDay?.windspeed_10m_max
