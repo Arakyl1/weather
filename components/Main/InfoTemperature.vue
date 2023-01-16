@@ -14,7 +14,8 @@
               :src="`./img/svg/wetherIcon/__${getNameIcon(elem.weathercode, elem.time)}.svg`"
               alt="icon" class="mb-3"
               />
-              <p class="text-2xl font-bold text-sky-300">
+              <p class="text-2xl font-bold"
+              :class="[getColorByTemp(Math.round(elem.temperature_2m))]">
                 {{ Math.round(elem.temperature_2m) }}&deg;
               </p>
             </div>

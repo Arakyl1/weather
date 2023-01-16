@@ -7,23 +7,16 @@
       <div class="max-w-xl mx-auto border border-yellow-100 pt-24">
         <MainNowInfo class="mb-8"/>
         <MainInfoTemperature class="z-20 relative"/>
+        <MainForWeek class="relative z-20 mb-12"/>
       </div>
     </div>
+    <OtherAddStyle/>
   </div>
 </template>
 
 <script setup lang="ts">
+
 const { init } = useData()
 init()
-// import { _appData } from "@/pinia/store";
 
-// const appDataFunc = _appData()
-// const { store } = storeToRefs(appDataFunc)
-// await appDataFunc.getLocalUser();
-
-// const { appData } = store
-// watch(() => appData, (newD) => {
-//   console.log(newD);
-  
-// })
 </script>

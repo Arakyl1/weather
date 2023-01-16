@@ -24,4 +24,23 @@
     .slader__item {
         @apply snap-start px-2 xl:px-3 sm:px-2
     }
+    .orange-100{
+        @apply text-orange-100
+    }
+    .orange-500{
+        @apply  text-orange-500 
+    }
+    .red-500{
+        @apply  text-red-500 
+    }
+    .sky-200{
+        @apply text-sky-100 
+    }
+    .sky-500{
+        @apply  text-sky-500 
+    }
+    .sky-700{
+        @apply  text-sky-700 
+    }
+
 }
