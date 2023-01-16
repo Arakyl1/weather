@@ -3,18 +3,17 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss', 
+    ['@kevinmarrec/nuxt-pwa', {
+      icon: {
+        source: 'assets/manifest/cloudy.png'
+      },
+      meta: {
+        theme_color: '#685e6f'
+      }
+    }],
   ],
   runtimeConfig: {
     // metioURlApi: process.env.BASE_METIO_API
   },
-  // postcss: {
-  //   plugins: {
-  //     tailwindcss: {},
-  //     autoprefixer: {},
-  //   }
-  // }
   ssr: false,
-  devServer: {
-    port: 3001
-  }
 });

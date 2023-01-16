@@ -17,6 +17,11 @@
 
 <script setup lang="ts">
 import { _appStore as appData } from "@/utils/store";
+
+useHead({
+  titleTemplate: () => 'Weather'
+})
+
 const { init } = useData()
 init()
 
