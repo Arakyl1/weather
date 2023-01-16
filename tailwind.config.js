@@ -59,7 +59,7 @@ module.exports = {
       'xs_3': { 'max' : '520px'},
       'xs_2': { 'max' : '460px'},
       'xs_1': { 'max' : '400px'},
-      'xs': { 'max' : '360px'},
+      'xs': { 'max' : '320px'},
     }
   },
   plugins: [],

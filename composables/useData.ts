@@ -1,24 +1,12 @@
-import { _appStore as appStore, updateStore } from "@/utils/store";
+import { _appStore as appStore } from "@/utils/store";
 export default () => {
 
     const init = async() => {
-        const data = await createContainerForData()
-        updateStore(data)
         await getCordsUser()
         addSearchParams()
         await getNowDate()
         await getAppData()
         checkPosotionSun()
-    }
-
-    const createContainerForData = async () => {
-        return {
-            URL: '',
-            appData: null,
-            date: null,
-            cords: { lat: null, lon: null, timezone: null, city: null },
-            positionSun: { sunrise: 0, sunset: 0 },
-        }
     }
 
     const getCordsUser = async() => {
@@ -60,7 +48,6 @@ export default () => {
             timezone: appStore.value.cords.timezone,
         };
 
-        console.log(appStore.value);
         
         const params = Object.assign(locatitioParams, paramsForSearch());
 

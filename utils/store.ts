@@ -1,8 +1,11 @@
-export const _appStore = ref<object>({})
+export const _appStore = ref({
+  URL: '',
+  appData: null,
+  date: null,
+  cords: { lat: null, lon: null, timezone: null, city: null },
+  positionSun: { sunrise: 0, sunset: 0 },
+})
 
-export function updateStore(data:object ) {
-  _appStore.value = data
-}
 
 export const dataForWeek = computed(() =>{
   if (_appStore.value.appData) {
