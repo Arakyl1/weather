@@ -69,8 +69,7 @@
 import {
   _appStore as appData,
   dataForWeek,
-  indexActiveDayInfo,
-  updateIndexActiveDayInfo
+  indexActiveDayInfo
 } from "@/utils/store";
 
 
@@ -105,57 +104,4 @@ const infoForSun = computed(() => {
 const formatterDate = (date) => formatter(option).format(new Date(date));
 const formaterTime = (time) => formatter(optionTime).format(time);
 
-
 </script>
-
-<!-- <style lang="scss">
-.a3 {
-
-  &__icon-wind {
-    path {
-      stroke: var(--col-blue-5);
-    }
-  }
-  :is(p, h2, h3, h4).--t-2xl {
-    @include media-style(
-      (
-        480: (
-          font-size: 1.25rem,
-        ),
-        360: (
-          font-size: 1.125rem,
-        ),
-      )
-    );
-  }
-  :is(p, h2, h3, h4, span).--t-xl {
-    @include media-style(
-      (
-        480: (
-          font-size: 1rem,
-        ),
-        360: (
-          font-size: 0.875rem,
-        ),
-      )
-    );
-  }
-  &__icon-position-sun {
-    filter: none;
-  }
-  &__sunrise-sunset {
-    justify-content: space-between;
-    padding: 0 1rem;
-    & > p {
-      filter: none;
-    }
-    @include media-style(
-      (
-        480: (
-          padding: 0,
-        ),
-      )
-    );
-  }
-}
-</style> -->

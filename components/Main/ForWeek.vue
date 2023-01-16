@@ -5,12 +5,13 @@
         <h2 class="text-3xl font-bold text-yellow-300 mb-6">
           Weather forecast for the week
         </h2>
-        <ul class="" @click="getElem($event)">
+        <ul class="">
           <li
             v-for="(item, index) in dataForWeek"
             class="flex flex-nowrap py-3 items-center border-t border-gray-600"
             :key="item.time"
             :data-index="index"
+            @click="updateIndexActiveDayInfo(index)"
           >
             <p class="grow text-3xl font-medium text-white">
               {{ formatter(option).format(new Date(item.time)) }}
@@ -33,7 +34,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { dataForWeek } from "@/utils/store";
+import { dataForWeek, updateIndexActiveDayInfo } from "@/utils/store";
 
 const option = temp5("en-US");
 
