@@ -1,58 +1,65 @@
 <template>
-  <div class="a4" v-if="dataForTwoDay">
-    <B1BasicSlader :data="dataForTwoDay" :quantity="quantityItem">
-      <template #item="{ elem }">
-        <div class="a4__item --flex">
-          <p class="a4__time --t-xl --500 --c-blue-1">
-            {{ getHours(elem.time) }}
-          </p>
-          <img
-            :src="`./img/svg/wetherIcon/__${getNameIcon(
-              elem.weathercode,
-              elem.time
-            )}.svg`"
-            alt="icon"
-          />
-          <p class="--t-2xl --700 --c-blue-1">
-            {{ Math.round(elem.temperature_2m) }}&deg;
-          </p>
-        </div>
-      </template>
-      <template
-        v-if="store.appScreenSize.width > 480"
-        #additional="{ nextItems, prevItems }"
-      >
-        <div class="a4__bt-container --flex">
-          <button @click="prevItems" class="a4__bt --st-bt">
-            <I4IconArrow />
-          </button>
-          <button @click="nextItems" class="a4__bt --st-bt">
-            <I4IconArrow />
-          </button>
-        </div>
-      </template>
-    </B1BasicSlader>
+  <div>
+    <template v-if="dataForTwoDay">
+      <Slader :data="dataForTwoDay" :container-class="'[grid-auto-columns:calc(100%/7)] mx-2'">
+        <template #header> <div></div> </template>
+        <template #item="{ elem }">
+          <div class="slader__item px-2 flex">
+            <div class="py-6 px-3 w-full rounded-full backdrop-blur-md flex flex-col items-center">
+
+              <p class="text-xl text-sky-100 mb-2">
+                {{ getHours(elem.time) }}
+              </p>
+              <img
+              :src="`./img/svg/wetherIcon/__${getNameIcon(elem.weathercode, elem.time)}.svg`"
+              alt="icon" class="mb-3"
+              />
+              <p class="text-2xl font-bold text-sky-300">
+                {{ Math.round(elem.temperature_2m) }}&deg;
+              </p>
+            </div>
+          </div>
+        </template>
+        <template #bottom> <div></div> </template>
+      </Slader>
+    </template>
   </div>
 </template>
 
-<script setup>
-import B1BasicSlader from "@/Componets/Basic/BasicSlader/B1-BasicSlader.vue";
-import { store, dataForTwoDay } from "@/Store/Store";
-import { computed } from "vue";
-import { formatter, temp4 } from "@/baseLogicJs/Formatter/Formatter";
-import I4IconArrow from "../Icon/I4-IconArrow.vue";
+<script setup lang="ts">
+import { _appStore as appData  } from "@/utils/store";
 
 const option = temp4("ru");
+
+//computed
+const getHowHours = computed(() => new Date(appData.value.date).getHours());
+
+const dataForTwoDay = computed(() =>{
+  if (appData.value.appData) {
+    return appData.value.appData?.hourly.time
+    .map((el, index) => {
+      const item = {};
+      for (const elem in appData.value.appData.hourly) {
+        const key = elem.replace(/_best_match/, "");
+        item[key] = appData.value.appData.hourly[elem][index];
+      }
+      return item;
+    })
+    .slice(getHowHours.value, getHowHours.value + 48)
+  } else {
+    return null
+  }
+});
 
 const getNameIcon = (code, time) => {
   const getItemTime = new Date(time).getHours();
   switch (true) {
-    case getItemTime === store.positionSun.sunrise:
+    case getItemTime === appData.value.positionSun.sunrise:
       return "0_morning";
-    case getItemTime === store.positionSun.sunset:
+    case getItemTime === appData.value.positionSun.sunset:
       return "0_evening";
-    case getItemTime > store.positionSun.sunrise ||
-      getItemTime < store.positionSun.sunset:
+    case getItemTime > appData.value.positionSun.sunrise ||
+      getItemTime < appData.value.positionSun.sunset:
       return `${code}_night`;
     default:
       return code;
@@ -63,23 +70,6 @@ const getTime = (time) => new Date(time);
 
 const getHours = (time) => formatter(option).format(getTime(time));
 
-const quantityItem = computed(() => {
-  const size = store.appScreenSize.width;
-  switch (true) {
-    case size < 360:
-      return 3;
-    case size < 480:
-      return 4;
-    case size < 550:
-      return 5;
-    case size < 650:
-      return 6;
-    case size < 750:
-      return 7;
-    default:
-      return 8;
-  }
-});
 </script>
 
 <!-- <style lang="scss">

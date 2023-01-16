@@ -1,6 +1,6 @@
 <template>
   <div class=" backdrop-blur" v-if="dataWeather">
-    <div class="px-8 bg-gradient-to-b from-teal-100 to-sky-400 rounded-32px">
+    <div class="px-8 bg-gradient-to-br from-teal-100 to-sky-400 rounded-32px">
       <div class=" pb-12 pt-8">
         <div class="flex items-end mb-4">
           <div class="w-[180px] md:w-[150px] sm:w-[120px] xs:w-[90px] relative">
@@ -82,44 +82,3 @@ const infoDate:ComputedRef<{
 
 const dataWeather = computed(() => appData.value ? appData.value.appData : null)
 </script>
-
-<!-- <style lang="scss">
--translate-y-24 sm:-translate-x-12
-  &__time {
-    flex-grow: 2;
-    text-align: right;
-    align-self: flex-end;
-    & > p {
-      font-size: 5rem;
-      filter: none;
-      @include media-style(
-        (
-          720: (
-            font-size: 3.5rem,
-          ),
-          480: (
-            font-size: 3rem,
-          ),
-          350: (
-            font-size: 2.5rem,
-          ),
-        )
-      );
-    }
-  }
-  &__bottom {
-    justify-content: flex-end;
-  }
-  &__local {
-    align-items: center;
-    & > svg {
-      height: 15px;
-      max-width: 15px;
-      margin-right: 0.5rem;
-      & > path {
-        fill: var(--col-blue-2);
-      }
-    }
-  }
-}
-</style> -->

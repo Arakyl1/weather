@@ -8,7 +8,7 @@ export default () => {
         addSearchParams()
         await getNowDate()
         await getAppData()
-        
+        checkPosotionSun()
     }
 
     const createContainerForData = async () => {
@@ -24,7 +24,6 @@ export default () => {
     const getCordsUser = async() => {
         try {
             const res = await $fetch("https://ipinfo.io/json?token=0a0ea1de3bda2b")
-            // return transformDataCorc(res)
             appStore.value.cords = transformDataCorc(res)
         } catch (err) {
             console.log(err);
@@ -86,11 +85,17 @@ export default () => {
         }
     }
 
+    const checkPosotionSun = async() => {
+        appStore.value.positionSun.sunrise = new Date(
+            appStore.value.appData?.daily.sunrise[0]
+        ).getHours();
+        appStore.value.positionSun.sunset = new Date(
+            appStore.value.appData?.daily.sunset[0]
+        ).getHours();
+    }
+
     return { getCordsUser, getAppData, init }
 }
-
-
-
 
   
   

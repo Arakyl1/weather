@@ -4,5 +4,24 @@
 @tailwind utilities;
 
 *, ::after, ::before{
+    line-height: 1.2;
     font-family: 'Quicksand', sans-serif;
+}
+
+@layer components {
+    .bt-base{
+        @apply overflow-hidden cursor-pointer transition-all focus-visible:outline-gray-100 
+        after:absolute after:w-full after:h-full
+        after:bg-white after:top-0 after:left-0 after:opacity-0 hover:after:opacity-30
+        disabled:after:opacity-30 py-4 px-5 rounded-md relative xl:py-3 xl:px-4
+    }
+    .other {
+        @apply md:grid-cols-1
+    }
+    .slader_container {
+        @apply grid -mx-4 overflow-x-scroll grid-flow-col scroll-smooth xl:-mx-3 sm:-mx-2 mb-4
+    }
+    .slader__item {
+        @apply snap-start px-2 xl:px-3 sm:px-2
+    }
 }

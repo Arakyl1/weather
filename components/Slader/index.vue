@@ -18,8 +18,7 @@
     <div
     v-if="data.length"
     ref="slader"
-    class="grid -mx-4 overflow-x-scroll grid-flow-col basic__slader scroll-smooth
-    xl:-mx-3 sm:-mx-2 mb-4"
+    class=" basic__slader slader_container"
     :class="[containerClass]"
     @scroll="logItem">
         <template v-for="(elem, index) in data" :key="index">
