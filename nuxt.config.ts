@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss', 
     ['@kevinmarrec/nuxt-pwa', {
       icon: {
-        source: 'assets/manifest/cloudy.png'
+        source: 'assets/manifest/cloudy-1.png'
       },
       meta: {
         theme_color: '#685e6f'
