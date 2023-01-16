@@ -5,7 +5,7 @@
         <template #header> <div></div> </template>
         <template #item="{ elem }">
           <div class="slader__item px-2 flex">
-            <div class="py-6 px-3 w-full rounded-full backdrop-blur-md flex flex-col items-center">
+            <div class="py-6 px-3 w-full rounded-full backdrop-blur-md flex flex-col items-center justify-between">
 
               <p class="text-xl text-sky-100 mb-2">
                 {{ getHours(elem.time) }}

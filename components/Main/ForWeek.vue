@@ -33,22 +33,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { _appStore as appData  } from "@/utils/store";
+import { dataForWeek } from "@/utils/store";
 
 const option = temp5("en-US");
 
-const dataForWeek = computed(() =>{
-  if (appData.value.appData) {
-    return appData.value.appData?.daily.time.map((el, index) => {
-      const item = {};
-      for (const key in appData.value.appData.daily) {
-        item[key] =  appData.value.appData.daily[key][index];
-      }
-      return item;
-    })
-  } else {
-    return null
-  }
-});
 </script>
 

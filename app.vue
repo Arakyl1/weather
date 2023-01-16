@@ -8,6 +8,7 @@
         <MainNowInfo class="mb-8"/>
         <MainInfoTemperature class="z-20 relative"/>
         <MainForWeek class="relative z-20 mb-12"/>
+        <MainAdditionalInfo class="mb-16"/>
       </div>
     </div>
     <OtherAddStyle/>

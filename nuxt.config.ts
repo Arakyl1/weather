@@ -2,11 +2,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss',
-    ['@pinia/nuxt', {
-        autoImports: ['defineStore', 'acceptHMRUpdate', 'storeToRefs'],
-    }
-  ], 
+    '@nuxtjs/tailwindcss', 
   ],
   runtimeConfig: {
     // metioURlApi: process.env.BASE_METIO_API

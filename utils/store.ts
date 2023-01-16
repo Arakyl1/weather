@@ -4,7 +4,23 @@ export function updateStore(data:object ) {
   _appStore.value = data
 }
 
+export const dataForWeek = computed(() =>{
+  if (_appStore.value.appData) {
+    return _appStore.value.appData?.daily.time.map((el, index) => {
+      const item = {};
+      for (const key in _appStore.value.appData.daily) {
+        item[key] =  _appStore.value.appData.daily[key][index];
+      }
+      return item;
+    })
+  } else {
+    return null
+  }
+});
 
+export const indexActiveDayInfo = ref<number>(0)
+
+export const updateIndexActiveDayInfo = (index: number) => indexActiveDayInfo.value = index
 
 // // computed
 // const index = computed(() => store.date ? new Date(store.date).getHours() : 0);
