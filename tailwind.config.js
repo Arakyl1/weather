@@ -3,6 +3,7 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [],
+  darkMode: 'class',
   theme: {
     colors: {
       transparent: 'transparent',
@@ -15,6 +16,7 @@ module.exports = {
       yellow: colors.yellow,
       orange: colors.orange,
       red: colors.red,
+      violet: colors.violet
     },
     extend: {
       borderRadius: {
@@ -53,7 +55,10 @@ module.exports = {
       'md': { 'max' :'767px'},
 
       'sm': { 'max' : '640px'},
-      
+      'xs_4': { 'max' : '580px'},
+      'xs_3': { 'max' : '520px'},
+      'xs_2': { 'max' : '460px'},
+      'xs_1': { 'max' : '400px'},
       'xs': { 'max' : '360px'},
     }
   },

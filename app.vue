@@ -4,9 +4,9 @@
       <div class="fixed h-full top-0 left-0 w-full z-0" >
         <img :src="`./img/background/__${stateOfDay}.jpg`" alt="" class="object-cover min-w-full min-h-full">
       </div>
-      <div class="max-w-xl mx-auto border border-yellow-100 pt-24">
-        <MainNowInfo class="mb-8"/>
-        <MainInfoTemperature class="z-20 relative"/>
+      <div class="max-w-xl mx-auto pt-24 sm:px-4 xs_2:px-2">
+        <MainNowInfo class="mb-8 relative z-20"/>
+        <MainInfoTemperature class="z-20 relative mb-8"/>
         <MainForWeek class="relative z-20 mb-12"/>
         <MainAdditionalInfo class="mb-16"/>
       </div>
@@ -34,4 +34,14 @@ const stateOfDay = computed(() => {
     return 'default'
   }
 });
+
+watch(() =>  stateOfDay.value, () => {
+  useHead({
+    htmlAttrs() {
+      return {
+        class: stateOfDay.value === 'nigth' ? 'dark' : 'light'
+      }
+    },
+  })
+})
 </script>

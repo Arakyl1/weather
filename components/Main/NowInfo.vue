@@ -1,14 +1,16 @@
 <template>
-  <div class=" backdrop-blur" v-if="dataWeather">
-    <div class="px-8 bg-gradient-to-br from-teal-100 to-sky-400 rounded-32px">
-      <div class=" pb-12 pt-8">
+  <div class="" v-if="dataWeather">
+    <div class="px-8 pb-12 pt-8 bg-gradient-to-br
+    from-teal-100 dark:from-sky-500 to-sky-400 dark:to-violet-600
+    rounded-32px xs_3:text-px-6 xs_3:pt-6 xs_3:pb-8 xs_3:rounded-3xl xs_1:px-4 xs_1:pt-4 xs_1:pb-4">
+      <div class="">
         <div class="flex items-end mb-4">
-          <div class="w-[180px] md:w-[150px] sm:w-[120px] xs:w-[90px] relative">
+          <div class="w-[180px]  xs_3:w-[120px] relative">
             <img :src="`./img/svg/wetherIcon/__${nameImage}.svg`" alt="#" 
-            class="w-full  absolute bottom-0 left-0 -translate-y-8"/>
+            class="w-full  absolute bottom-0 left-0 -translate-y-8 xs_1:-translate-y-4 "/>
           </div>
           <div class="grow text-right">
-              <p class="relative text-sky-700 text-6xl font-bold">
+              <p class="relative text-sky-700 dark:text-sky-200 text-6xl font-bold xs_3:text-5xl xs_1:text-4xl">
                 {{ Math.round(dataWeather.current_weather.temperature) }}&deg;
               </p>
           </div>
@@ -16,15 +18,15 @@
         <template v-if="infoDate">
           <div class="flex">
           <div class="grow">
-            <p class="text-sky-700 font-semibold  text-4xl">
+            <p class="text-sky-700 font-semibold text-4xl dark:text-sky-200 xs_3:text-3xl xs_1:text-2xl">
               {{ infoDate.weekday }}
             </p>
-            <p class="text-sky-700 font-semibold text-4xl">
+            <p class="text-sky-700 font-semibold text-4xl dark:text-sky-200 xs_3:text-3xl xs_1:text-2xl">
               {{ infoDate.day }}
             </p>
           </div>
           <div class="">
-            <p class="text-blue-700 text-6xl font-bold">
+            <p class="text-6xl font-bold text-sky-900 dark:text-sky-100 xs_3:text-5xl xs_1:text-4xl">
               {{ infoDate.min }}
             </p>
           </div>
@@ -32,8 +34,9 @@
         </template>
         <div class="text-right">
           <div class="flex items-center justify-end">
-            <IconMarker class="h-5 group is-icon-white mr-4"/>
-            <p class="text-white text-2xl">{{ appData.cords.city }}</p>
+            <IconMarker class="h-5 group is-icon-black mr-4 "/>
+            <p class="text-gray-900 dark:text-white text-2xl xs_3:text-xl xs_1:text-lg"
+            >{{ appData.cords.city }}</p>
           </div>
         </div>
       </div>

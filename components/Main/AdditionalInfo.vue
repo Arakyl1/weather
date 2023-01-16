@@ -1,46 +1,44 @@
 <template>
   <div v-if="appData.appData">
-    <div class="rounded-32px backdrop-blur-md">
-      <div class="p-8">
-        <h2 class=" text-3xl font-bold text-yellow-200">
+    <div class="rounded-32px backdrop-blur-md p-8 xs_3:p-6 xs_3:rounded-3xl xs_1:p-4">
+      <div>
+        <h2 class="text-3xl font-bold mb-4 dark:text-yellow-200 text-yellow-500 sm:text-2xl xs_2:text-xl xs_2:mb-2">
           Detailed information
         </h2>
-        <div class="py-4">
-          <p class="text-2xl text-teal-300 font-semibold">
+        <div class="mb-3 xs_2:mb-1">
+          <p class="text-2xl text-teal-100 dark:text-teal-400 font-semibold sm:text-xl xs_2:text-lg xs_1:text-base">
             {{ formatterDate(dataForDay?.time) }}
           </p>
         </div>
-        <ul class="border-b border-gray-900 pb-6">
-          <li class="text-xl text-sky-100 font-semibold">
-            Current weather :
-            <span class="text-xl text-sky-100">
-              {{ codeWeather()[dataForDay?.weathercode] }}
-            </span>
+        <ul class="border-b border-gray-600 pb-6 xs_2:pd-4 xs_1:pb-3">
+          <li class="text-2xl text-gray-800 dark:text-sky-100 font-semibold sm:text-xl xs_2:text-lg xs_1:text-base">
+            Current weather:
+            <span> {{ codeWeather()[dataForDay?.weathercode] }}</span>
           </li>
           <li
-            class="text-sky-100 text-xl font-semibold"
+            class="text-gray-800 dark:text-sky-100 text-2xl font-semibold sm:text-xl xs_2:text-lg xs_1:text-base"
             v-for="item in params"
             :key="item.key"
           >
             {{ item.text }} :
-            <span class="text-xl text-sky-100"> {{ dataForDay[item.key] }}</span>
-            <span v-if="item?.temp" class="text-sky-100">&deg;</span>
+            <span> {{ dataForDay[item.key] }}</span>
+            <span v-if="item?.temp">&deg;</span>
           </li>
         </ul>
         <div class="py-2">
-          <h3 class=" text-2xl font-semibold text-teal-300">Wind</h3>
+          <h3 class=" text-2xl font-semibold text-teal-100 dark:text-teal-400 sm:text-xl xs_1:text-base">Wind</h3>
           <div class="flex justify-between">
             <IconWind class="group is-icon-white" />
             <div class="text-right">
-              <p class="text-yellow-200 text-xl font-semibold mb-2">
+              <p class="text-yellow-100 dark:text-yellow-200 text-xl font-semibold mb-2 sm:text-lg xs_2:mb-0 xs_1:text-base">
                 Wind direction :
-                <span class="text-xl text-sky-100">{{
+                <span class=" text-sky-100">{{
                   windDirection(dataForDay.winddirection_10m_dominant)
                 }}</span>
               </p>
-              <p class="text-yellow-200 text-xl font-semibold">
+              <p class="text-yellow-200 text-xl font-semibold sm:text-lg xs_1:text-base">
                 Wind speed :
-                <span class="text-sky-100 text-xl">{{
+                <span class="text-sky-100">{{
                   dataForDay?.windspeed_10m_max
                 }}</span>
               </p>
@@ -53,10 +51,10 @@
             :offset="`-${infoForSun.offset}%`"
           />
           <div class="flex justify-between px-2">
-            <p class="text-yellow-500 font-semibold">
+            <p class="text-yellow-500 text-xl font-semibold xs_3:text-lg xs_2:text-base xs_1:text-sm">
               {{ formaterTime(infoForSun.sunrise) }}
             </p>
-            <p class="text-yellow-500 font-semibold">
+            <p class="text-yellow-500 text-xl font-semibold xs_3:text-lg xs_2:text-base xs_1:text-sm">
               {{ formaterTime(infoForSun.sunset) }}
             </p>
           </div>

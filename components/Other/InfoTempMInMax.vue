@@ -1,13 +1,11 @@
 <template>
     <div class="flex justify-end items-end">
-      <p class="text-2xl font-semibold"
-      :class="[minCol]">
+      <p :class="[minCol, styleP]">
         {{ Math.round(min) }}&deg;
       </p>
-      <p class="text-2xl font-semibold" :class="[minCol]">..</p>
-      <p class="text-2xl font-semibold" :class="[maxCol]">.</p>
-      <p class="text-2xl font-semibold"
-      :class="[maxCol]">
+      <p :class="[minCol, styleP]">..</p>
+      <p :class="[maxCol, styleP]">.</p>
+      <p :class="[maxCol, styleP]">
         {{ Math.round(max) }}&deg;
       </p>
     </div>
@@ -16,6 +14,7 @@
 <script setup lang="ts">
 const props = defineProps<{ min: number, max: number }>()
 
+const styleP = 'text-3xl font-semibold sm:text-2xl xs_2:text-xl xs_1:text-lg'
 const minCol = getColorByTemp(Math.round(props.min))
 const maxCol = getColorByTemp(Math.round(props.max))
 </script>
