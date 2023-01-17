@@ -63,6 +63,8 @@ const nameImage = computed(() => {
         return `${nameCode}_morning`;
       case appData.value.positionSun.sunset === nowTime && nameCode === 0:
         return `${nameCode}_evening`;
+      case appData.value.positionSun.sunrise > nowTime || appData.value.positionSun.sunset < nowTime:
+        return `${nameCode}_night`;
       default:
         return nameCode;
     }

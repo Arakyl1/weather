@@ -60,13 +60,13 @@ const dataForTwoDay = computed(() =>{
 
 const getNameIcon = (code, time) => {
   const getItemTime = new Date(time).getHours();
+
   switch (true) {
     case getItemTime === appData.value.positionSun.sunrise:
       return "0_morning";
     case getItemTime === appData.value.positionSun.sunset:
       return "0_evening";
-    case getItemTime > appData.value.positionSun.sunrise ||
-      getItemTime < appData.value.positionSun.sunset:
+    case getItemTime > appData.value.positionSun.sunset || getItemTime < appData.value.positionSun.sunrise:
       return `${code}_night`;
     default:
       return code;
