@@ -2,7 +2,17 @@
   <div>
     <template v-if="dataForTwoDay">
       <Slader :data="dataForTwoDay" :container-class="containerClass">
-        <template #header> <div></div> </template>
+        <template #header="{ prevItem, nextItem }"> <div>
+          <div class="flex pb-4 sm:hidden">
+            <div class="grow"></div>
+            <div class="flex">
+              <ButtomArround class="rounded-full backdrop-blur-md rotate-180"
+              @click="prevItem"/>
+              <ButtomArround class="rounded-full backdrop-blur-md ml-6"
+              @click="nextItem"/>
+            </div>
+          </div>
+        </div></template>
         <template #item="{ elem }">
           <div class="slader__item px-2 flex">
             <div class="py-6 px-3 w-full rounded-full backdrop-blur-md flex flex-col items-center justify-between">
