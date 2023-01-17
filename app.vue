@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="min-h-screen relative">
-      <div class="fixed h-full top-0 left-0 w-full z-0" >
+      <div class="fixed h-screen bottom-0 left-0 w-screen z-0" >
         <img :src="`./img/background/__${stateOfDay}.jpg`" alt="" class="object-cover min-w-full min-h-full">
       </div>
       <div class="max-w-xl mx-auto pt-24 sm:px-4 xs_2:px-2">
