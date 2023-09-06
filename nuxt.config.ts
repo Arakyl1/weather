@@ -13,7 +13,9 @@ export default defineNuxtConfig({
     }],
   ],
   runtimeConfig: {
-    // metioURlApi: process.env.BASE_METIO_API
+    public: {
+      URL_API_METIO: 'https://api.open-meteo.com'
+    }
   },
   ssr: false,
 });

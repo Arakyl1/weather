@@ -1,4 +1,4 @@
-export default function () {
+export default () => {
     return {
         hourly: [
             "temperature_2m",
